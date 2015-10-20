@@ -45,7 +45,8 @@ shinyServer(function(input, output)
             predYears$year = predYears$year + 2013
             selPred = predict(selMod,predYears)
             df=data.frame(year=c(selData$year,predYears$year),SeriesCount=c(selData$N,selPred),DataOrPrediction=as.factor(c(rep(1,3),rep(2,predCount))))
-            plot(SeriesCount~year,data=df,col=DataOrPrediction,pch=9,cex=2,xlab='Year. BLS data in black and predictions in red.',ylab='Series Count')
+            xlab = 'Year. BLS Data (black) and Predictions (red).'
+            plot(SeriesCount~year,data=df,col=DataOrPrediction,pch=9,cex=2,xlab=xlab,ylab='Series Count')
         }
     })
     output$treeP <- renderTree({
