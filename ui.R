@@ -78,7 +78,13 @@ shinyUI(fluidPage(
                     ),
                     numericInput('yearsP','Number of years to predict:',3,min=1,max=9),
                     p(),
-                    'Start doc here'
+                    'The plot shows the count of injury series for the selected industry in black and',
+                    'a prediction for the count for the following few years in red. Use the text box (above) to enter',
+                    'the number of years to predict (between 1 and 9, default 3) and the tree control',
+                    "(to the bottom right) to select which industry's injuries to plot (to the right).",
+                    br(),br(),
+                    'For background on this data and more detailed application documentation, click on',
+                    tags$b('More Documentation'),'above and to the right.'
                 ),
                 mainPanel
                 (
@@ -96,8 +102,27 @@ shinyUI(fluidPage(
             'More Documentation',
             titlePanel('Application Documentation and Background'),
             br(),
-            'Some doc here'
-
+            'The United States Bureau of Labor Statistics (BLS) makes available each year several GB of data on occupational injuries.',
+            'The data is available at http://download.bls.gov/pub/time.series/cs and data documentation',
+            'is available in cs.txt at that location. Briefly, Injury series are recorded with lots of',
+            'dimensions such as year, age, industry, and much more.',
+            br(),br(),
+            'This application lets one explore injuries by year for a chosen industry. The application',
+            'displays a plot of the chosen data to help elucidate the trend in the chosen data.',
+            'To make the trend clear, the plot shows both the actual BLS data and a linear prediction',
+            'for the years following those available in the BLS data.',
+            'There are two user controls. The first is a text entry box that lets the user choose how',
+            'many years forward to predict. The second lets the user choose a focus industry by walking',
+            'a hierarchy that starts with all injuries and gets more specific as the user',
+            tags$i('walks'),'towards',
+            'the leaves of the tree representation of the hierarchy.',
+            'The predicted injury series counts are in red.',
+            br(),br(),
+            'The supported number of years to predict is between 1 and 9 inclusive.',
+            'The tree can be opened or closed by clicking on the triangle to left of each industry (category).',
+            'The user indicates a selection for plotting by clicking on the text of the industry itself.',
+            br(),br(),
+            'Click on', tags$b('Injury Predictions by Industry'),'in the upper left to return to the application.'
         ), # tabPanel
         conditionalPanel
         (

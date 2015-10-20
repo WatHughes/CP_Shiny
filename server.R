@@ -31,6 +31,16 @@ shinyServer(function(input, output)
         {
             selMod = lm(N~year,data=selData)
             predCount = input$yearsP
+            if (!is.integer(predCount))
+            {
+                predCount = 3
+            } else if (predCount < 1)
+            {
+                predCount = 1
+            } else if (predCount > 9)
+            {
+                predCount = 9
+            }
             predYears = data.frame(year=c(1:predCount))
             predYears$year = predYears$year + 2013
             selPred = predict(selMod,predYears)
