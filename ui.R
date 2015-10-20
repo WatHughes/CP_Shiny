@@ -78,13 +78,13 @@ shinyUI(fluidPage(
                     ),
                     numericInput('yearsP','Number of years to predict:',3,min=1,max=9),
                     p(),
-                    'The plot shows the count of injury series for the selected industry in black and',
+                    "The plot shows the count of injury series for the selected industry's workers in black and",
                     'a prediction for the count for the following few years in red. Use the text box (above) to enter',
                     'the number of years to predict (between 1 and 9, default 3) and the tree control',
                     "(to the bottom right) to select which industry's injuries to plot (to the right).",
                     br(),br(),
                     'For background on this data and more detailed application documentation, click on',
-                    tags$b('More Documentation'),'above and to the right.'
+                    tags$b('More Documentation'),'above and to the center.'
                 ),
                 mainPanel
                 (
@@ -121,6 +121,8 @@ shinyUI(fluidPage(
             'The supported number of years to predict is between 1 and 9 inclusive.',
             'The tree can be opened or closed by clicking on the triangle to left of each industry (category).',
             'The user indicates a selection for plotting by clicking on the text of the industry itself.',
+            'To provide adequate performance to the user, the depth of the industry hierarchy has been',
+            'limited and the summary counts have been precalculated by year and industry.',
             br(),br(),
             'Click on', tags$b('Injury Predictions by Industry'),'in the upper left to return to the application.'
         ), # tabPanel
