@@ -76,7 +76,9 @@ shinyUI(fluidPage(
                             choices = names(FNsP)
                         )
                     ),
-                    numericInput('yearsP','Number of years to predict:',3,min=1,max=9)
+                    numericInput('yearsP','Number of years to predict:',3,min=1,max=9),
+                    p(),
+                    'Start doc here'
                 ),
                 mainPanel
                 (
@@ -91,28 +93,40 @@ shinyUI(fluidPage(
         ), # tabPanel
         tabPanel
         (
-            'RStudio Default Application',
-            # Application title
-            titlePanel("Old Faithful Geyser Data"),
+            'More Documentation',
+            titlePanel('Application Documentation and Background'),
+            br(),
+            'Some doc here'
 
-            # Sidebar with a slider input for number of bins
-            sidebarLayout
+        ), # tabPanel
+        conditionalPanel
+        (
+            condition='false',
+            tabPanel
             (
-                sidebarPanel
+                'RStudio Default Application',
+                # Application title
+                titlePanel('Old Faithful Geyser Data'),
+
+                # Sidebar with a slider input for number of bins
+                sidebarLayout
                 (
-                    sliderInput("bins",
-                    "Number of bins:",
-                    min = 1,
-                    max = 50,
-                    value = 30)
-                ),
-                # Show a plot of the generated distribution
-                mainPanel
-                (
-                    plotOutput("distPlot")
+                    sidebarPanel
+                    (
+                        sliderInput('bins',
+                        'Number of bins:',
+                        min = 1,
+                        max = 50,
+                        value = 30)
+                    ),
+                    # Show a plot of the generated distribution
+                    mainPanel
+                    (
+                        plotOutput('distPlot')
+                    )
                 )
-            )
-        ) # tabPanel
+            ) # tabPanel
+        ) # conditionalPanel
     ) # tabsetPanel
 )) # shinyUI(fluidPage
 
