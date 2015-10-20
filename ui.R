@@ -131,7 +131,11 @@ shinyUI(fluidPage(
             'When talking the tree, click a white traingle to open the its respective node. When',
             'a node is open, click the black triangle to close it.',
             br(),br(),
-            'Click on the', tags$b('Injury Predictions by Industry'),'tab in the upper left to return to the application.'
+            'Click on the', tags$b('Injury Predictions by Industry'),'tab in the upper left to return to the application.',
+            br(),br(),
+            'The source code for this application is available for review at that',
+            tags$a(href='https://github.com/WatHughes/CP_Shiny',target='_blank','GitHub Repo'),
+            'for this application.'
         ), # tabPanel
         conditionalPanel
         (
