@@ -135,7 +135,13 @@ shinyUI(fluidPage(
             br(),br(),
             'The source code for this application is available for review at that',
             tags$a(href='https://github.com/WatHughes/CP_Shiny',target='_blank','GitHub Repo'),
-            'for this application.'
+            'for this application.',
+            br(),br(),
+            'To calculate the predictions, first the selected data points (from the tree control)',
+            "are fed to R's lm()",
+            'function. The resulting model is then fed to predict() along with the list of years',
+            'that the user specified (indirectly, with the text input control).',
+            br(),br()
         ), # tabPanel
         conditionalPanel
         (
